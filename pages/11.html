@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truck 11</title>
+    <link rel="manifest" href="/manifest.json">
+    <!-- //Google API Material Icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- //My Styles Sheets-->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- //Materlizeds Javascripts/Css-->
+    <link rel="stylesheet" href="/css/materialize.min.css">
+    <script src="/js/materialize.min.js"></script>
+    
+    <!-- //Firebase Java references-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-analytics.js"></script>
+
+
+    <!-- Required to make IOS PWA works -->
+    <link rel="apple-touch-icon" href="/images/icons/icon-96x96.png">
+    <meta name="apple-mobile-web-app-status-bar" content="#E12800">
+    <meta name="theme-color" content="#E12800">
+</head>
+<body>
+     <!--Page Header Bar -->
+     <nav class="z-depth-0">
+        <div class="nav-wrapper container">
+           <a href="/">BRFD <span>App 1</span></a>
+            <span class="right grey-text text-darken-1">
+                <i class="material-icons sidenav-trigger" data-target="side-menu">menu</i>
+           </span>
+        </div>
+    </nav>
+
+    <!-- Side Nav Menu Right Side--> 
+  <ul id="side-menu" class="sidenav side-menu">
+    <li><a class="subheader">BRFD</a></li>
+    <li><a href="/" class="waves-effect">Home</a></li>
+    <li><a href="http://www.brfd.ca/" class="waves-effect">BRFD.ca</a></li>
+    <li><div class="divider"></div></li>
+    <li><a href="/pages/contact.html" class="waves-effect">
+      <i class="material-icons">mail_outline</i>Contact</a>
+    </li>
+    <li><a class=signout>Sign Out</a></li>
+    <li><a class="update">Update</a></li>
+  </ul>
+  
+  <div class="truckmain container grey-text text-darken-1" page-id="11">
+  
+  </div>
+
+  <div class="center">
+    <a class="btn-floating btn-small btn-large add-btn sidenav-trigger" data-target="side-form">
+      <i class="material-icons">add</i>
+    </a>
+  </div>
+
+  <div id="side-form" class="sidenav side-form">
+    <form class="add-truckmain container section" truck-id="11">
+      <h6 >New Maintenance Activity</h6>
+      <div class="divider"></div>
+      <div class="input-field">
+        <input placeholder="e.g. All Good or waht did you do" id="note" type="text" class="validate">
+        <label for="title">Note</label>
+      </div>
+      <div class="input-field">
+        <input placeholder="e.g. odometer reading" id="milage" type="text" class="validate" inputmode="numeric">
+        <label for="ingredients">Odometer Reading</label>
+      </div>
+      <div class="input-field center">
+        <button class="btn-small sidenav-close">Add</button>
+      </div>
+    </form>
+  </div>
+  
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAuHlc_-drtb4srqzdFbB7wjtQsWDpzdd8",
+      authDomain: "brfd-truck-main.firebaseapp.com",
+      databaseURL: "https://brfd-truck-main.firebaseio.com",
+      projectId: "brfd-truck-main",
+      storageBucket: "brfd-truck-main.appspot.com",
+      messagingSenderId: "833495828604",
+      appId: "1:833495828604:web:73edd60bcab0b629c021f9",
+      measurementId: "G-2MWEBNK7HD"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    const db = firebase.firestore();
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          // console.log(user.uid);
+        } else {
+          window.location.replace('./index.html');
+        }})
+  </script>
+ 
+  <!--//My Javascripts-->
+  <script src="/js/ui.js"></script>
+  <script src="/js/db.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
